@@ -1,2 +1,2 @@
-# info2180-lab4
-info2180-lab4
+# INFO2180 Lab4
+This is Lab 4 for Sydney Wong
