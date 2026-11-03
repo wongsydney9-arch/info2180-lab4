@@ -9,13 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function search(){
-    const popupcontent = document.querySelector('#popup div');
-    const popup = document.getElementById('popup');
     fetch('superheroes.php')
         .then(response => response.text())
         .then(data => {
-            popupcontent.innerHTML = data;
-            popup.showModal();
+            window.alert(data);
         })
-        .catch(error => console.error('Cannot load file.', error))
+        .catch(error => window.alert('Cannot load file.', error))
 }
