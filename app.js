@@ -1,18 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
     const searchbutton = document.querySelector('#search');
-    const closebutton = document.querySelector('#close');
-    const popup = document.getElementById('popup');
     searchbutton.addEventListener("click", search);
-    closebutton.addEventListener("click", () => {
-        popup.close();
-    });
 })
 
 function search(){
-    fetch('superheroes.php')
+    const input = document.getElementById('tbox').value.trim();
+    const result = document.getElementById('result');
+    fetch('superheroes.php?input=' + encodeURIComponent(input))
         .then(response => response.text())
         .then(data => {
-            window.alert(data);
+            result.innerHTML = data;
         })
-        .catch(error => window.alert('Cannot load file.', error))
+        .catch(error => {result.textContent = 'An error has occured.'
+            console.error(error);
+        });
 }

@@ -1,0 +1,53 @@
+:root{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    margin: 25px 150px;
+}
+
+header{
+    margin: -33px -158px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(81, 130, 203);
+}
+
+h1{
+    color: white;
+    text-transform: uppercase;
+}
+
+h2{
+    text-transform: uppercase;
+    color: navy;
+    border-bottom: 1.5px solid lightgray;
+    padding-bottom: 20px;
+}
+
+h3{
+    margin-bottom: -15px;
+}
+
+p{
+    font-weight: 600;
+    color: rgb(74, 74, 74);
+}
+
+h5{
+    color: rgb(206, 2, 2);
+    text-transform: uppercase;
+}
+
+#search{
+    background-color: rgb(206, 2, 2);
+    color: white;
+    margin: -5px;
+    border-radius: 10%;
+    border: none;
+    padding:10px 7.5px;
+}
+
+input{
+    width: 85%;
+    padding:8.5px 10px;
+}

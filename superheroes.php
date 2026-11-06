@@ -65,8 +65,31 @@ $superheroes = [
 
 ?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+
+<?php $input = isset($_GET['input']) ? trim($_GET['input']): '';
+$input = filter_var($input, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+if ($input === ''){
+    echo "<ul>";
+    foreach ($superheroes as $superhero){
+        echo "<li>". $superhero['alias']."</li>";
+    }
+    echo "</ul>";
+
+} else {
+    $found = false;
+
+    foreach ($superheroes as $superhero){
+        if(strcasecmp($superhero['name'], $input) === 0 || strcasecmp($superhero['alias'], $input) === 0){
+            echo '<h3>'.htmlspecialchars($superhero['alias']).'</h3>';
+            echo '<h4>A.K.A '.htmlspecialchars($superhero['name']).'</h4>';
+            echo '<p>'.htmlspecialchars($superhero['biography']).'</p>';
+            $found = true;
+            break;
+        }
+    }
+
+    if (!$found){
+        echo "<h5>Superhero not found</h5>";
+    }
+}?>
